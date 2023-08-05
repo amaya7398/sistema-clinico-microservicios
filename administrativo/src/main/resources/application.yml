@@ -1,0 +1,16 @@
+server:
+    port: 8080
+    servlet:
+        context-path: /api/admin-personal
+spring:
+    application:
+        name: admin-personal
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+    datasource:
+        url: jdbc:mysql://localhost:3306/clinica-admin-personal
+        username: root
+        password: danielMysql1@
+        driver-class-name: com.mysql.cj.jdbc.Driver
