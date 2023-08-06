@@ -1,7 +1,7 @@
 server:
     port: 8080
     servlet:
-        context-path: /api/admin-personal
+        context-path: /api-personal
 spring:
     application:
         name: admin-personal

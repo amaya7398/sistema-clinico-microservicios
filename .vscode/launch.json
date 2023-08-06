@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AdministrativoApplication<administrativo>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "edu.uady.administrativo.AdministrativoApplication",
+            "projectName": "administrativo",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
