@@ -1,8 +1,11 @@
 package edu.uady.administrativo.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.*;
 
@@ -20,22 +23,26 @@ public class FichaIdentificacion {
     private Long numExpediente;
 
     @CreatedDate
-    @Column(name = "fecha_creacion_expediente")
-    private Date fechaCreacionExpediente;
+    @Column(name = "fecha_creacion_expediente", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate fechaCreacionExpediente;
 
-    @Column(name = "nombre", length = 40)
+    @Column(name = "nombre", length = 40, nullable = false)
     private String nombre;
 
-    @Column(name = "apellidos", length = 60)
+    @Column(name = "apellidos", length = 60, nullable = false)
     private String apellidos;
 
-    @Column(name = "fecha_nacimiento")
-    private Date fechaNacimiento;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(name = "fecha_nacimiento", nullable = false)
+    private LocalDate fechaNacimiento;
 
     @Column(name = "direccion", length = 60)
     private String direccion;
 
-    @Column(name = "telefono", length = 10)
+    @Column(name = "telefono", length = 10, nullable = false)
     private Long telefono;
 
     @Column(name = "email", length = 30)

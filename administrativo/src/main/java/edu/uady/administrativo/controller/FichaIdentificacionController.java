@@ -1,6 +1,8 @@
 package edu.uady.administrativo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,29 +16,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
-@RequestMapping("/ficha_identificacion")
+@RequestMapping(value = "/ficha_identificacion")
 public class FichaIdentificacionController {
 
     @Autowired
     FichaIdentificacionService fichaIdentificacionService;
 
     @GetMapping
-    public FichaIdentificacion getFichaIdentificacion(@RequestParam Integer id) {
-        // TODO: finish process GET request
-        return fichaIdentificacionService.getFichaIdentificacionById(id);
+    public ResponseEntity<?> getFichaIdentificacion(@RequestParam Long id) {
+        try {
+            return new ResponseEntity<>(
+                    fichaIdentificacionService.getFichaIdentificacionById(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @PostMapping
-    public FichaIdentificacion createFichaIdentificacion(@RequestBody FichaIdentificacion ficha) {
-        // TODO: process POST request
-        return ficha;
+    public ResponseEntity<?> createFichaIdentificacion(@RequestBody FichaIdentificacion ficha) {
+        try {
+            return new ResponseEntity<>(
+                    fichaIdentificacionService.createFichaIdentificacion(ficha), HttpStatus.CREATED);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
-    @PutMapping(value = "editar/{id}")
-    public FichaIdentificacion updateFichaIdentificacion(@PathVariable Integer id,
-            @RequestBody FichaIdentificacion ficha) {
-        // TODO: process PUT request
-
-        return ficha;
+    @PutMapping()
+    public ResponseEntity<?> updateFichaIdentificacion(@RequestBody FichaIdentificacion ficha) {
+        try {
+            return new ResponseEntity<>(
+                    fichaIdentificacionService.updateFichaIdentificacion(ficha), HttpStatus.CREATED);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }

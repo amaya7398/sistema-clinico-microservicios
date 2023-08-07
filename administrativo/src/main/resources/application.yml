@@ -1,7 +1,7 @@
 server:
     port: 8080
     servlet:
-        context-path: /api-personal
+        context-path: /api/personal
 spring:
     application:
         name: admin-personal
@@ -14,3 +14,6 @@ spring:
         username: root
         password: danielMysql1@
         driver-class-name: com.mysql.cj.jdbc.Driver
+    # jackson:
+    #     serialization:
+    #         write-dates-as-timestamps: false
