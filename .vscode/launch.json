@@ -9,6 +9,16 @@
             "projectName": "administrativo",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-AntecedentesApplication<antecedentes>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "edu.uady.antecedentes.AntecedentesApplication",
+            "projectName": "antecedentes",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

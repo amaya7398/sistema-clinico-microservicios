@@ -13,7 +13,6 @@ import edu.uady.administrativo.model.FichaIdentificacion;
 import edu.uady.administrativo.service.FichaIdentificacionService;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping(value = "/ficha_identificacion")
